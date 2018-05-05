@@ -54,10 +54,11 @@ public class GameScreen implements Screen {
         vaisseau = new Image(new Texture("Vaisseau.png"));
         System.out.println("Vaisseau : largeur : "+ vaisseau.getWidth() + "Hauteur : " + vaisseau.getHeight());
 
-        vaisseau.scaleBy(3f);
+        vaisseau.scaleBy(2f);
         vaisseau.setPosition(Gdx.graphics.getWidth()/3-vaisseau.getWidth()/2,Gdx.graphics.getHeight()*2/3-vaisseau.getHeight()/2);
         System.out.println("Vaisseau : largeur : "+ vaisseau.getWidth()*vaisseau.getScaleX() + "Hauteur : " + vaisseau.getHeight()*vaisseau.getScaleY());
         stage.addActor(vaisseau);
+        
     }
 
     @Override
@@ -73,7 +74,7 @@ public class GameScreen implements Screen {
     	Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         posX = vaisseau.getX() + vitesseVaisseau ;
-        if ((posX < Gdx.graphics.getWidth()/10) || (posX > (9*Gdx.graphics.getWidth()/10 - vaisseau.getWidth()*vaisseau.getScaleX() ))) vitesseVaisseau = -vitesseVaisseau ;
+        if ((posX < Gdx.graphics.getWidth()/6) || (posX > (5*Gdx.graphics.getWidth()/6 - vaisseau.getWidth()*vaisseau.getScaleX() ))) vitesseVaisseau = -vitesseVaisseau ;
         vaisseau.setPosition(posX, vaisseau.getY()) ;
         stage.act();
         stage.draw();
